@@ -1,5 +1,3 @@
-parse_card(cardAsString) = Card("5")
+include("../src/Card.jl")
 
-struct Card
-    rank::String
-end
+parsecard(cardAsString) = Card("5")
