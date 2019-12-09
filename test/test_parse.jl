@@ -6,8 +6,9 @@ using Test
 @testset "Parse" begin
     @testset "Parse card" begin
         @test parsecard("5H") == Card(Rank("5"), HEARTS)
-        @test parsecard("AH") == Card(Rank("A"), HEARTS)
-        @test parsecard("0H") == Card(Rank("10"), HEARTS)
+         @test parsecard("AD") == Card(Rank("A"), DIAMONDS)
+         @test parsecard("0C") == Card(Rank("10"), CLUBS)
+         @test parsecard("KS") == Card(Rank("K"), SPADES)
     end
 
     @testset "Invalid rank" begin

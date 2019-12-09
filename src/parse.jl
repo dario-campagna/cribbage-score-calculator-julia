@@ -18,9 +18,9 @@ function parserank(card_as_text)
 end
 
 function parsesuite(card_as_text)
-    suite_as_text = SubString(card_as_text, 2, 2)
+    suite_as_text = card_as_text[2]
     if !isvalidsuite(suite_as_text)
         throw(ErrorException("Unrecognized suite $suite_as_text in card $card_as_text"))
     end
-    return HEARTS
+    return Suite(Int(suite_as_text))
 end
