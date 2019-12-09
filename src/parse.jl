@@ -1,13 +1,17 @@
 include("../src/Card.jl")
 
-function parsecard(cardAsString)
-    rankAsString = parserank(SubString(cardAsString, 1, 1))
-    return Card(rankAsString)
+function parsecard(card_as_text)
+    rank = parserank(card_as_text)
+    return Card(rank)
 end
 
-function parserank(rankAsString)
-    if (rankAsString == "0")
-            rankAsString = "10"
+function parserank(card_as_text)
+    rank_as_text = SubString(card_as_text, 1, 1)
+    if rank_as_text == "0"
+            rank_as_text = "10"
     end
-    return rankAsString
+    if !isvalidrank(rank_as_text)
+        throw(ErrorException("Unrecognized rank $rank_as_text in card $card_as_text"))
+    end
+    return Rank(rank_as_text)
 end
