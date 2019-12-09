@@ -6,6 +6,13 @@ end
 
 isvalidrank(rank_as_text) = rank_as_text in validranks
 
+@enum Suite begin
+    HEARTS
+end
+
+isvalidsuite(suite_as_text) = suite_as_text != "Y"
+
 struct Card
     rank::Rank
+    suite::Suite
 end
