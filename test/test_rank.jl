@@ -1,4 +1,4 @@
-include("../src/Card.jl")
+include("../src/Rank.jl")
 
 using Test
 
