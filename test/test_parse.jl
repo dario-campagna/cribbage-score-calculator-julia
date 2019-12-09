@@ -5,6 +5,7 @@ using Test
 
 @testset "Parse" begin
     @testset "Parse card rank" begin
-        @test parsecard("5H") == Card("5")
+        @test parsecard("5H") == Card('5')
+        @test parsecard("AH") == Card('A')
     end
 end

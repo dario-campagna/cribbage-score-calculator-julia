@@ -1,3 +1,3 @@
 struct Card
-    rank::String
+    rank::Char
 end

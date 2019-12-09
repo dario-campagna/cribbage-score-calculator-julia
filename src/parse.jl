@@ -1,3 +1,3 @@
 include("../src/Card.jl")
 
-parsecard(cardAsString) = Card("5")
+parsecard(cardAsString) = Card(cardAsString[1])
