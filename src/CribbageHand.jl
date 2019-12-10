@@ -14,11 +14,13 @@ struct CribbageHand
     )
 end
 
-function number_of_pairs(cribbage_hand::CribbageHand)
-    combinations_of_two_cards = collect(combinations(cribbage_hand.all_cards, 2))
+function number_of_pairs(hand::CribbageHand)
+    combinations_of_two_cards = collect(combinations(hand.all_cards, 2))
     return length(filter(ispair, combinations_of_two_cards))
 end
 
-ispair(cards) = cards[1].rank == cards[2].rank
+isflush(hand::CribbageHand) = allsamesuite(hand.cards_in_hand)
 
-isflush(cribbage_hand::CribbageHand) = all(c -> c.suite == cribbage_hand.cards_in_hand[1].suite, cribbage_hand.cards_in_hand)
+isflushwithstarter(hand::CribbageHand) = allsamesuite(hand.all_cards)
+
+hasnib(hand::CribbageHand) = any(c -> c == nib(hand.starter_card.suite), hand.cards_in_hand)

@@ -45,4 +45,26 @@ end
         Card(Rank("A"), HEARTS)
     )
     @test score(flush_hand) == 4
+
+    all_same_suite = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("4"), DIAMONDS),
+            Card(Rank("0"), DIAMONDS),
+            Card(Rank("8"), DIAMONDS)
+        ],
+        Card(Rank("A"), DIAMONDS)
+    )
+    @test score(all_same_suite) == 5
+
+    has_is_nib = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("4"), CLUBS),
+            Card(Rank("J"), DIAMONDS),
+            Card(Rank("8"), DIAMONDS)
+        ],
+        Card(Rank("A"), DIAMONDS)
+    )
+    @test score(has_is_nib) == 1
 end

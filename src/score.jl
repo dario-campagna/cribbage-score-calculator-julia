@@ -1,9 +1,9 @@
 include("../src/CribbageHand.jl")
 
-score(cribbage_hand::CribbageHand) = mapreduce(r -> r(cribbage_hand), +, rules)
+score(hand::CribbageHand) = mapreduce(r -> r(hand), +, rules)
 
-points_for_pairs(cribbage_hand::CribbageHand) = 2 * number_of_pairs(cribbage_hand)
+points_for_pairs(hand::CribbageHand) = 2 * number_of_pairs(hand)
 
-points_for_flush(cribbage_hand::CribbageHand) = 4 * isflush(cribbage_hand)
+points_for_flush(hand::CribbageHand) = 4 * isflush(hand) + isflushwithstarter(hand) + hasnib(hand)
 
 rules = [points_for_pairs, points_for_flush]
