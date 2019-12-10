@@ -2,7 +2,7 @@ include("../src/score.jl")
 
 using Test
 
-@testset "Score pairs" begin
+@testset "Pairs" begin
     one_pair = CribbageHand(
         [
             Card(Rank("0"), HEARTS),
@@ -32,4 +32,17 @@ using Test
         ],
         Card(Rank("A"), HEARTS))
     @test score(three_cards_of_a_kind) == 6
+end
+
+@testset "Flush" begin
+    flush_hand = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("4"), DIAMONDS),
+            Card(Rank("0"), DIAMONDS),
+            Card(Rank("8"), DIAMONDS)
+        ],
+        Card(Rank("A"), HEARTS)
+    )
+    @test score(flush_hand) == 4
 end
