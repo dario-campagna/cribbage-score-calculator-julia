@@ -1,4 +1,20 @@
 include("../src/Card.jl")
+include("../src/CribbageHand.jl")
+
+function parsehand(hand_as_text)
+    cards = map(parsecard, cardsastext(hand_as_text))
+    return CribbageHand(getindex(cards, 1:4), cards[5])
+end
+
+function cardsastext(hand_as_text)
+    l = length(hand_as_text)
+    if l == 2
+        return [hand_as_text]
+    else
+        return append!(cardsastext(getindex(hand_as_text, 1:l - 2)),
+            [getindex(hand_as_text, l-1:l)])
+     end
+end
 
 function parsecard(card_as_text)
     rank = parserank(card_as_text)
