@@ -11,8 +11,7 @@ function cardsastext(hand_as_text)
     if l == 2
         return [hand_as_text]
     else
-        return append!(cardsastext(getindex(hand_as_text, 1:l - 2)),
-            [getindex(hand_as_text, l-1:l)])
+        return push!(cardsastext(getindex(hand_as_text, 1:l - 2)),getindex(hand_as_text, l - 1:l))
      end
 end
 
