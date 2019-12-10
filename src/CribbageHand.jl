@@ -6,6 +6,7 @@ struct CribbageHand
     cards_in_hand::Array{Card}
     starter_card::Card
     all_cards::Array{Card}
+
     CribbageHand(cards_in_hand, starter_card) = new(
         cards_in_hand,
         starter_card,
@@ -19,3 +20,5 @@ function number_of_pairs(cribbage_hand::CribbageHand)
 end
 
 ispair(cards) = cards[1].rank == cards[2].rank
+
+isflush(cribbage_hand::CribbageHand) = all(c -> c.suite == cribbage_hand.cards_in_hand[1].suite, cribbage_hand.cards_in_hand)

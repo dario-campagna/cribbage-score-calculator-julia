@@ -33,3 +33,27 @@ using Test
         Card(Rank("A"), HEARTS))
     @test number_of_pairs(six_pairs) == 6
 end
+
+@testset "Is flush" begin
+    flush_hand = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("4"), DIAMONDS),
+            Card(Rank("0"), DIAMONDS),
+            Card(Rank("8"), DIAMONDS)
+        ],
+        Card(Rank("A"), HEARTS)
+    )
+    @test isflush(flush_hand) == true
+
+    not_a_flush = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("4"), DIAMONDS),
+            Card(Rank("0"), HEARTS),
+            Card(Rank("8"), DIAMONDS)
+        ],
+        Card(Rank("A"), HEARTS)
+    )
+    @test isflush(not_a_flush) == false
+end
