@@ -3,24 +3,24 @@ include("../src/Rank.jl")
 using Test
 
 @testset "Valid rank" begin
-    @test isvalidrank("A") == true
-    @test isvalidrank("2") == true
-    @test isvalidrank("3") == true
-    @test isvalidrank("4") == true
-    @test isvalidrank("5") == true
-    @test isvalidrank("6") == true
-    @test isvalidrank("7") == true
-    @test isvalidrank("8") == true
-    @test isvalidrank("9") == true
-    @test isvalidrank("10") == true
-    @test isvalidrank("J") == true
-    @test isvalidrank("Q") == true
-    @test isvalidrank("K") == true
+    @test is_valid_rank("A") == true
+    @test is_valid_rank("2") == true
+    @test is_valid_rank("3") == true
+    @test is_valid_rank("4") == true
+    @test is_valid_rank("5") == true
+    @test is_valid_rank("6") == true
+    @test is_valid_rank("7") == true
+    @test is_valid_rank("8") == true
+    @test is_valid_rank("9") == true
+    @test is_valid_rank("10") == true
+    @test is_valid_rank("J") == true
+    @test is_valid_rank("Q") == true
+    @test is_valid_rank("K") == true
 end
 
 @testset "Invalid rank" begin
-    @test isvalidrank("X") == false
-    @test isvalidrank("1") == false
+    @test is_valid_rank("X") == false
+    @test is_valid_rank("1") == false
 end
 
 @testset "Rank value" begin

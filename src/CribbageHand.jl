@@ -16,14 +16,14 @@ end
 
 function number_of_pairs(hand::CribbageHand)
     combinations_of_two_cards = collect(combinations(hand.all_cards, 2))
-    return length(filter(ispair, combinations_of_two_cards))
+    return length(filter(is_pair, combinations_of_two_cards))
 end
 
-isflush(hand::CribbageHand) = allsamesuite(hand.cards_in_hand)
+is_flush(hand::CribbageHand) = all_same_suite(hand.cards_in_hand)
 
-isflushwithstarter(hand::CribbageHand) = allsamesuite(hand.all_cards)
+is_flush_with_starter(hand::CribbageHand) = all_same_suite(hand.all_cards)
 
-hasnib(hand::CribbageHand) = any(c -> c == nib(hand.starter_card.suite), hand.cards_in_hand)
+has_nib(hand::CribbageHand) = any(c -> c == nib(hand.starter_card.suite), hand.cards_in_hand)
 
 function number_of_fifteen_twos(hand::CribbageHand)
     combs = map(n -> collect(combinations(hand.all_cards, n)), [2,3,4,5])
@@ -32,7 +32,7 @@ end
 
 is_sum_15(cards) = sum(cards) == 15
 
-is_run_of_five(hand::CribbageHand) = are_consecutives(hand.all_cards)
+is_run_of_five(hand::CribbageHand) = are_consecutive(hand.all_cards)
 
 is_run_of_four(hand::CribbageHand) = count_consecutive_combinations(hand.all_cards, 4) == 1
 
@@ -40,5 +40,5 @@ number_of_runs_of_three(hand::CribbageHand) = count_consecutive_combinations(han
 
 function count_consecutive_combinations(cards::Array{Card}, n::Int)
     combs = collect(combinations(cards, n))
-    return length(filter(are_consecutives, combs))
+    return length(filter(are_consecutive, combs))
 end

@@ -3,13 +3,13 @@ include("../src/Card.jl")
 using Test
 
 @testset "Valid rank" begin
-    @test isvalidsuite('H') == true
-    @test isvalidsuite('C') == true
-    @test isvalidsuite('S') == true
-    @test isvalidsuite('D') == true
+    @test is_valid_suite('H') == true
+    @test is_valid_suite('C') == true
+    @test is_valid_suite('S') == true
+    @test is_valid_suite('D') == true
 end
 
 @testset "Invalid suite" begin
-    @test isvalidsuite('F') == false
-    @test isvalidsuite('1') == false
+    @test is_valid_suite('F') == false
+    @test is_valid_suite('1') == false
 end

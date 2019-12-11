@@ -4,18 +4,18 @@ using Test
 
 @testset "Parse card" begin
     @testset "From card string to internal representation" begin
-        @test parsecard("5H") == Card(Rank("5"), HEARTS)
-         @test parsecard("AD") == Card(Rank("A"), DIAMONDS)
-         @test parsecard("0C") == Card(Rank("10"), CLUBS)
-         @test parsecard("KS") == Card(Rank("K"), SPADES)
+        @test parse_card("5H") == Card(Rank("5"), HEARTS)
+        @test parse_card("AD") == Card(Rank("A"), DIAMONDS)
+        @test parse_card("0C") == Card(Rank("10"), CLUBS)
+        @test parse_card("KS") == Card(Rank("K"), SPADES)
     end
 
     @testset "Invalid rank" begin
-        @test_throws ErrorException("Unrecognized rank X in card XC") parsecard("XC")
+        @test_throws ErrorException("Unrecognized rank X in card XC") parse_card("XC")
     end
 
     @testset "Invalid suite" begin
-        @test_throws ErrorException("Unrecognized suite Y in card 5Y") parsecard("5Y")
+        @test_throws ErrorException("Unrecognized suite Y in card 5Y") parse_card("5Y")
     end
 end
 
@@ -29,7 +29,7 @@ end
         ],
         Card(Rank("8"), CLUBS)
     )
-    actual = parsehand("5H7D4CAS8C")
+    actual = parse_hand("5H7D4CAS8C")
     @test actual.cards_in_hand == expected.cards_in_hand
     @test actual.starter_card == expected.starter_card
 end

@@ -44,7 +44,7 @@ end
         ],
         Card(Rank("A"), HEARTS)
     )
-    @test isflush(flush_hand) == true
+    @test is_flush(flush_hand) == true
 
     not_a_flush = CribbageHand(
         [
@@ -55,7 +55,7 @@ end
         ],
         Card(Rank("A"), HEARTS)
     )
-    @test isflush(not_a_flush) == false
+    @test is_flush(not_a_flush) == false
 end
 
 @testset "Coung fifteen-twos" begin
