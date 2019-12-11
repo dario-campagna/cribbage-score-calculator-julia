@@ -5,9 +5,6 @@ module CribbageScoreCalculator
     include("parse.jl")
     include("score.jl")
 
-    function score_of(hand_as_text::String)
-        cribbage_hand = parse_hand(hand_as_text)
-        print(score(cribbage_hand))
-    end
+    score_of(hand_as_text::String) = print(score(parse_hand(hand_as_text)))
 
 end

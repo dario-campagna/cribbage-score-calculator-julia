@@ -11,15 +11,11 @@ function cards_as_text(hand_as_text::String)
     if l == 2
         return [hand_as_text]
     else
-        return push!(cards_as_text(getindex(hand_as_text, 1:l - 2)),getindex(hand_as_text, l - 1:l))
+        return push!(cards_as_text(hand_as_text[1:l - 2]), hand_as_text[l - 1:l])
      end
 end
 
-function parse_card(card_as_text::String)
-    rank = parse_rank(card_as_text)
-    suite = parse_suite(card_as_text)
-    return Card(rank, suite)
-end
+parse_card(card_as_text::String) = Card(parse_rank(card_as_text), parse_suite(card_as_text))
 
 function parse_rank(card_as_text::String)
     rank_as_text = SubString(card_as_text, 1, 1)
