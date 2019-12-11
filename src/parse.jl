@@ -1,5 +1,5 @@
-include("../src/Card.jl")
-include("../src/CribbageHand.jl")
+include("Card.jl")
+include("CribbageHand.jl")
 
 function parse_hand(hand_as_text)
     cards = map(parse_card, cards_as_text(hand_as_text))

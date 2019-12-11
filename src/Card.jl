@@ -1,4 +1,4 @@
-include("../src/Rank.jl")
+include("Rank.jl")
 
 @enum Suite begin
     CLUBS=67

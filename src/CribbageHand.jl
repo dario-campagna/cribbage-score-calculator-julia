@@ -1,6 +1,6 @@
-include("../src/Card.jl")
+include("Card.jl")
 
-using Combinatorics
+import Combinatorics
 
 struct CribbageHand
     cards_in_hand::Array{Card}
@@ -15,7 +15,7 @@ struct CribbageHand
 end
 
 function number_of_pairs(hand::CribbageHand)
-    combinations_of_two_cards = collect(combinations(hand.all_cards, 2))
+    combinations_of_two_cards = collect(Combinatorics.combinations(hand.all_cards, 2))
     return length(filter(is_pair, combinations_of_two_cards))
 end
 
@@ -26,7 +26,7 @@ is_flush_with_starter(hand::CribbageHand) = all_same_suite(hand.all_cards)
 has_nib(hand::CribbageHand) = any(c -> c == nib(hand.starter_card.suite), hand.cards_in_hand)
 
 function number_of_fifteen_twos(hand::CribbageHand)
-    combs = map(n -> collect(combinations(hand.all_cards, n)), [2,3,4,5])
+    combs = map(n -> collect(Combinatorics.combinations(hand.all_cards, n)), [2,3,4,5])
     return length(filter(is_sum_15, collect(Iterators.flatten(combs))))
 end
 
@@ -39,6 +39,6 @@ is_run_of_four(hand::CribbageHand) = count_consecutive_combinations(hand.all_car
 number_of_runs_of_three(hand::CribbageHand) = count_consecutive_combinations(hand.all_cards, 3)
 
 function count_consecutive_combinations(cards::Array{Card}, n::Int)
-    combs = collect(combinations(cards, n))
+    combs = collect(Combinatorics.combinations(cards, n))
     return length(filter(are_consecutive, combs))
 end

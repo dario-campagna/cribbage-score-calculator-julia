@@ -1,4 +1,4 @@
-include("../src/CribbageHand.jl")
+include("CribbageHand.jl")
 
 score(hand::CribbageHand) = mapreduce(r -> r(hand), +, rules)
 
