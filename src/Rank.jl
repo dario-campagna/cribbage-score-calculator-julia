@@ -16,15 +16,15 @@ ValueOrdinalBySymbol = Dict(
 
 struct Rank
     symbol::String
-    value::Int
-    ordinal::Int
+    value::Integer
+    ordinal::Integer
     Rank(symbol) = new(symbol, ValueOrdinalBySymbol[symbol][1], ValueOrdinalBySymbol[symbol][2])
 end
 
 is_valid_rank(rank_as_text) = rank_as_text in keys(ValueOrdinalBySymbol)
 
 Base.:+(rank::Rank, other_rank::Rank) = rank.value + other_rank.value
-Base.:+(i::Int64, rank::Rank) = i + rank.value
+Base.:+(i::Integer, rank::Rank) = i + rank.value
 
 function are_consecutive(ranks::Array{Rank})
     sorted_ordinals = sort(map(r -> r.ordinal, ranks))

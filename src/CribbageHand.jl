@@ -38,7 +38,7 @@ is_run_of_four(hand::CribbageHand) = count_consecutive_combinations(hand.all_car
 
 number_of_runs_of_three(hand::CribbageHand) = count_consecutive_combinations(hand.all_cards, 3)
 
-function count_consecutive_combinations(cards::Array{Card}, n::Int)
+function count_consecutive_combinations(cards::Array{Card}, n::Integer)
     combs = collect(Combinatorics.combinations(cards, n))
     return length(filter(are_consecutive, combs))
 end

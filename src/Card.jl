@@ -15,7 +15,7 @@ struct Card
 end
 
 Base.:+(card::Card, other_card::Card) = card.rank + other_card.rank
-Base.:+(i::Int64, card::Card) = i + card.rank
+Base.:+(i::Integer, card::Card) = i + card.rank
 
 is_pair(cards::Array{Card}) = cards[1].rank == cards[2].rank
 
