@@ -31,3 +31,7 @@ function number_of_fifteen_twos(hand::CribbageHand)
 end
 
 is_sum_15(cards) = sum(cards) == 15
+
+is_run_of_five(hand::CribbageHand) = are_consecutives(hand.all_cards)
+
+is_run_of_four(hand::CribbageHand) = any(are_consecutives, collect(combinations(hand.all_cards, 4)))

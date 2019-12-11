@@ -8,4 +8,12 @@ points_for_flush(hand::CribbageHand) = 4 * isflush(hand) + isflushwithstarter(ha
 
 points_for_fifteen_twos(hand::CribbageHand) = 2 * number_of_fifteen_twos(hand)
 
+function points_for_runs(hand::CribbageHand)
+    if is_run_of_five(hand)
+        return 5
+    elseif is_run_of_four(hand)
+        return 4
+    end
+end
+
 rules = [points_for_pairs, points_for_flush, points_for_fifteen_twos]

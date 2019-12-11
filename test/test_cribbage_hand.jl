@@ -114,3 +114,29 @@ end
     )
     @test number_of_fifteen_twos(one_fifteen_two_with_five_cards) == 1
 end
+
+@testset "Run of five" begin
+    hand = CribbageHand(
+        [
+            Card(Rank("9"), DIAMONDS),
+            Card(Rank("10"), CLUBS),
+            Card(Rank("J"), SPADES),
+            Card(Rank("Q"), DIAMONDS)
+        ],
+        Card(Rank("K"), DIAMONDS)
+    )
+    @test is_run_of_five(hand) == true
+end
+
+@testset "Run of four" begin
+    hand = CribbageHand(
+        [
+            Card(Rank("4"), DIAMONDS),
+            Card(Rank("10"), CLUBS),
+            Card(Rank("J"), SPADES),
+            Card(Rank("Q"), DIAMONDS)
+        ],
+        Card(Rank("K"), DIAMONDS)
+    )
+    @test is_run_of_four(hand) == true
+end

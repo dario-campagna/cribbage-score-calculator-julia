@@ -38,3 +38,19 @@ end
     @test Rank("Q").value == 10
     @test Rank("K").value == 10
 end
+
+@testset "Rank ordinal" begin
+    @test Rank("A").ordinal == 1
+    @test Rank("2").ordinal == 2
+    @test Rank("3").ordinal == 3
+    @test Rank("4").ordinal == 4
+    @test Rank("5").ordinal == 5
+    @test Rank("6").ordinal == 6
+    @test Rank("7").ordinal == 7
+    @test Rank("8").ordinal == 8
+    @test Rank("9").ordinal == 9
+    @test Rank("10").ordinal == 10
+    @test Rank("J").ordinal == 11
+    @test Rank("Q").ordinal == 12
+    @test Rank("K").ordinal == 13
+end

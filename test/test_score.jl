@@ -82,6 +82,30 @@ end
     @test points_for_fifteen_twos(one_fifteen_two) == 2
 end
 
+@testset "Points for runs" begin
+    run_of_five = CribbageHand(
+        [
+            Card(Rank("9"), DIAMONDS),
+            Card(Rank("10"), CLUBS),
+            Card(Rank("J"), SPADES),
+            Card(Rank("Q"), DIAMONDS)
+        ],
+        Card(Rank("K"), DIAMONDS)
+    )
+    @test points_for_runs(run_of_five) == 5
+
+    run_of_four = CribbageHand(
+        [
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("10"), CLUBS),
+            Card(Rank("J"), SPADES),
+            Card(Rank("Q"), DIAMONDS)
+        ],
+        Card(Rank("K"), DIAMONDS)
+    )
+    @test points_for_runs(run_of_four) == 4
+end
+
 @testset "Score" begin
     fifteen_sixteen_and_six_pairs = CribbageHand(
         [
