@@ -26,7 +26,7 @@ isflushwithstarter(hand::CribbageHand) = allsamesuite(hand.all_cards)
 hasnib(hand::CribbageHand) = any(c -> c == nib(hand.starter_card.suite), hand.cards_in_hand)
 
 function number_of_fifteen_twos(hand::CribbageHand)
-    combs = map(n -> collect(combinations(hand.all_cards, n)), [2,3])
+    combs = map(n -> collect(combinations(hand.all_cards, n)), [2,3,4,5])
     return length(filter(is_sum_15, collect(Iterators.flatten(combs))))
 end
 

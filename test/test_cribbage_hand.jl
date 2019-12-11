@@ -91,4 +91,26 @@ end
         Card(Rank("9"), HEARTS)
     )
     @test number_of_fifteen_twos(one_fifteen_two_with_three_cards) == 1
+
+    one_fifteen_two_with_four_cards = CribbageHand(
+        [
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("3"), DIAMONDS),
+            Card(Rank("A"), HEARTS),
+            Card(Rank("5"), DIAMONDS)
+        ],
+        Card(Rank("2"), HEARTS)
+    )
+    @test number_of_fifteen_twos(one_fifteen_two_with_four_cards) == 1
+
+    one_fifteen_two_with_five_cards = CribbageHand(
+        [
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("3"), DIAMONDS),
+            Card(Rank("2"), HEARTS),
+            Card(Rank("3"), DIAMONDS)
+        ],
+        Card(Rank("2"), HEARTS)
+    )
+    @test number_of_fifteen_twos(one_fifteen_two_with_five_cards) == 1
 end
