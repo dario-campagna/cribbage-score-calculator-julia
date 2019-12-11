@@ -80,4 +80,15 @@ end
         Card(Rank("10"), HEARTS)
     )
     @test number_of_fifteen_twos(two_fifteen_two_with_two_cards) == 2
+
+    one_fifteen_two_with_three_cards = CribbageHand(
+        [
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("2"), DIAMONDS),
+            Card(Rank("5"), HEARTS),
+            Card(Rank("5"), DIAMONDS)
+        ],
+        Card(Rank("9"), HEARTS)
+    )
+    @test number_of_fifteen_twos(one_fifteen_two_with_three_cards) == 1
 end

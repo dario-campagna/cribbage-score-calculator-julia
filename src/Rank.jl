@@ -23,3 +23,4 @@ end
 isvalidrank(rank_as_text) = rank_as_text in keys(RanksValues)
 
 Base.:+(rank::Rank, other_rank::Rank) = rank.value + other_rank.value
+Base.:+(i::Int64, rank::Rank) = i + rank.value
