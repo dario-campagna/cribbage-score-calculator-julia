@@ -22,3 +22,19 @@ end
     @test isvalidrank("X") == false
     @test isvalidrank("1") == false
 end
+
+@testset "Rank value" begin
+    @test Rank("A").value == 1
+    @test Rank("2").value == 2
+    @test Rank("3").value == 3
+    @test Rank("4").value == 4
+    @test Rank("5").value == 5
+    @test Rank("6").value == 6
+    @test Rank("7").value == 7
+    @test Rank("8").value == 8
+    @test Rank("9").value == 9
+    @test Rank("10").value == 10
+    @test Rank("J").value == 10
+    @test Rank("Q").value == 10
+    @test Rank("K").value == 10
+end

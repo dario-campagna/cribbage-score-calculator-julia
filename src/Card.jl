@@ -14,6 +14,8 @@ struct Card
     suite::Suite
 end
 
+Base.:+(card::Card, other_card::Card) = card.rank + other_card.rank
+
 ispair(cards::Array{Card}) = cards[1].rank == cards[2].rank
 
 allsamesuite(cards::Array{Card}) = all(c -> c.suite == cards[1].suite, cards)

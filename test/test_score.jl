@@ -5,9 +5,9 @@ using Test
 @testset "Pairs" begin
     one_pair = CribbageHand(
         [
-            Card(Rank("0"), HEARTS),
+            Card(Rank("10"), HEARTS),
             Card(Rank("4"), HEARTS),
-            Card(Rank("0"), CLUBS),
+            Card(Rank("10"), CLUBS),
             Card(Rank("2"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
@@ -15,9 +15,9 @@ using Test
 
     two_pairs = CribbageHand(
         [
-            Card(Rank("0"), HEARTS),
+            Card(Rank("10"), HEARTS),
             Card(Rank("2"), HEARTS),
-            Card(Rank("0"), CLUBS),
+            Card(Rank("10"), CLUBS),
             Card(Rank("2"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
@@ -25,10 +25,10 @@ using Test
 
     three_cards_of_a_kind = CribbageHand(
         [
-            Card(Rank("0"), HEARTS),
+            Card(Rank("10"), HEARTS),
             Card(Rank("2"), HEARTS),
-            Card(Rank("0"), CLUBS),
-            Card(Rank("0"), SPADES)
+            Card(Rank("10"), CLUBS),
+            Card(Rank("10"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
     @test score(three_cards_of_a_kind) == 6
@@ -39,7 +39,7 @@ end
         [
             Card(Rank("2"), DIAMONDS),
             Card(Rank("4"), DIAMONDS),
-            Card(Rank("0"), DIAMONDS),
+            Card(Rank("10"), DIAMONDS),
             Card(Rank("8"), DIAMONDS)
         ],
         Card(Rank("A"), HEARTS)
@@ -50,7 +50,7 @@ end
         [
             Card(Rank("2"), DIAMONDS),
             Card(Rank("4"), DIAMONDS),
-            Card(Rank("0"), DIAMONDS),
+            Card(Rank("10"), DIAMONDS),
             Card(Rank("8"), DIAMONDS)
         ],
         Card(Rank("A"), DIAMONDS)
