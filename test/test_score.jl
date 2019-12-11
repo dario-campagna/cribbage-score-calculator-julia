@@ -2,7 +2,7 @@ include("../src/score.jl")
 
 using Test
 
-@testset "Pairs" begin
+@testset "Points for pairs" begin
     one_pair = CribbageHand(
         [
             Card(Rank("10"), HEARTS),
@@ -11,7 +11,7 @@ using Test
             Card(Rank("2"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
-    @test score(one_pair) == 2
+    @test points_for_pairs(one_pair) == 2
 
     two_pairs = CribbageHand(
         [
@@ -21,7 +21,7 @@ using Test
             Card(Rank("2"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
-    @test score(two_pairs) == 4
+    @test points_for_pairs(two_pairs) == 4
 
     three_cards_of_a_kind = CribbageHand(
         [
@@ -31,10 +31,10 @@ using Test
             Card(Rank("10"), SPADES)
         ],
         Card(Rank("A"), HEARTS))
-    @test score(three_cards_of_a_kind) == 6
+    @test points_for_pairs(three_cards_of_a_kind) == 6
 end
 
-@testset "Flush" begin
+@testset "Points for flush" begin
     flush_hand = CribbageHand(
         [
             Card(Rank("2"), DIAMONDS),
@@ -44,7 +44,7 @@ end
         ],
         Card(Rank("A"), HEARTS)
     )
-    @test score(flush_hand) == 4
+    @test points_for_flush(flush_hand) == 4
 
     all_same_suite = CribbageHand(
         [
@@ -55,7 +55,7 @@ end
         ],
         Card(Rank("A"), DIAMONDS)
     )
-    @test score(all_same_suite) == 5
+    @test points_for_flush(all_same_suite) == 5
 
     has_is_nib = CribbageHand(
         [
@@ -66,5 +66,31 @@ end
         ],
         Card(Rank("A"), DIAMONDS)
     )
-    @test score(has_is_nib) == 1
+    @test points_for_flush(has_is_nib) == 1
+end
+
+@testset "Points for fifteen-twos" begin
+    one_fifteen_two = CribbageHand(
+        [
+            Card(Rank("10"), DIAMONDS),
+            Card(Rank("5"), CLUBS),
+            Card(Rank("3"), DIAMONDS),
+            Card(Rank("A"), DIAMONDS)
+        ],
+        Card(Rank("8"), DIAMONDS)
+    )
+    @test points_for_fifteen_twos(one_fifteen_two) == 2
+end
+
+@testset "Score" begin
+    fifteen_sixteen_and_six_pairs = CribbageHand(
+        [
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("5"), CLUBS),
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("10"), DIAMONDS)
+        ],
+        Card(Rank("5"), DIAMONDS)
+    )
+    @test score(fifteen_sixteen_and_six_pairs) == 28
 end
