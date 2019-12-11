@@ -34,4 +34,11 @@ is_sum_15(cards) = sum(cards) == 15
 
 is_run_of_five(hand::CribbageHand) = are_consecutives(hand.all_cards)
 
-is_run_of_four(hand::CribbageHand) = any(are_consecutives, collect(combinations(hand.all_cards, 4)))
+is_run_of_four(hand::CribbageHand) = count_consecutive_combinations(hand.all_cards, 4) == 1
+
+number_of_runs_of_three(hand::CribbageHand) = count_consecutive_combinations(hand.all_cards, 3)
+
+function count_consecutive_combinations(cards::Array{Card}, n::Int)
+    combs = collect(combinations(cards, n))
+    return length(filter(are_consecutives, combs))
+end

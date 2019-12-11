@@ -13,7 +13,9 @@ function points_for_runs(hand::CribbageHand)
         return 5
     elseif is_run_of_four(hand)
         return 4
+    else
+        return 3 * number_of_runs_of_three(hand)
     end
 end
 
-rules = [points_for_pairs, points_for_flush, points_for_fifteen_twos]
+rules = [points_for_pairs, points_for_flush, points_for_fifteen_twos, points_for_runs]

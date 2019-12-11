@@ -140,3 +140,16 @@ end
     )
     @test is_run_of_four(hand) == true
 end
+
+@testset "Runs of three" begin
+    hand = CribbageHand(
+        [
+            Card(Rank("5"), DIAMONDS),
+            Card(Rank("5"), CLUBS),
+            Card(Rank("6"), SPADES),
+            Card(Rank("A"), DIAMONDS)
+        ],
+        Card(Rank("7"), DIAMONDS)
+    )
+    @test number_of_runs_of_three(hand) == 2
+end
