@@ -1,4 +1,4 @@
-RankValues = Dict(
+RanksValues = Dict(
     "A" => 1,
     "2" => 2,
     "3" => 3,
@@ -17,9 +17,9 @@ RankValues = Dict(
 struct Rank
     symbol::String
     value::Int
-    Rank(symbol) = new(symbol, RankValues[symbol])
+    Rank(symbol) = new(symbol, RanksValues[symbol])
 end
 
-isvalidrank(rank_as_text) = rank_as_text in ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+isvalidrank(rank_as_text) = rank_as_text in keys(RanksValues)
 
 Base.:+(rank::Rank, other_rank::Rank) = rank.value + other_rank.value
