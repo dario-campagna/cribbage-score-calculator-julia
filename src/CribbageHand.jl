@@ -3,9 +3,9 @@ include("Card.jl")
 import Combinatorics
 
 struct CribbageHand
-    cards_in_hand::Array{Card}
+    cards_in_hand::Vector{Card}
     starter_card::Card
-    all_cards::Array{Card}
+    all_cards::Vector{Card}
 
     CribbageHand(cards_in_hand, starter_card) = new(
         cards_in_hand,
