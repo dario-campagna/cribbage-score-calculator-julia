@@ -1,5 +1,7 @@
 # Cribbage score calculator
 
+[![Build Status](https://travis-ci.com/dario-campagna/cribbage-score-calculator-julia.svg?branch=master)](https://travis-ci.com/dario-campagna/cribbage-score-calculator-julia)
+
 Cribbage score calculator implemented with Julia programming language and TDD.
 
 The program computes the score of a [Cribbage](https://en.wikipedia.org/wiki/Rules_of_cribbage) hand consisting of four hand cards and a starter card.
